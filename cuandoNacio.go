@@ -10,6 +10,7 @@ func main() {
 	name := ""
 	var edad int
 	var dias int
+	var err error
 	fecha := time.Now()
 
 	dia := fecha.Day()
@@ -19,29 +20,44 @@ func main() {
 	var diaUser int
 	var mesUser time.Month
 
-	fmt.Println("\nHola, ¿cómo te llamas?")
-	_, err := fmt.Scanln(&name)
-	if err != nil {
-		fmt.Println("Error al leer tu nombre:", err)
-		return
+	for {
+		fmt.Println("\nHola, ¿cómo te llamas?")
+		_, err := fmt.Scanln(&name)
+		if err != nil {
+			fmt.Println("Error al leer tu nombre:", err)
+			continue
+		}
+		break
 	}
-	fmt.Println("\nHola,", name, "¿cuántos años tienes?")
-	_, err = fmt.Scanln(&edad)
-	if err != nil {
-		fmt.Println("Error al leer tu edad:", err)
-		return
+
+	for {
+		fmt.Println("\nHola,", name, "¿cuántos años tienes?")
+		_, err = fmt.Scanln(&edad)
+		if err != nil {
+			fmt.Println("Error al leer tu edad:", err)
+			continue
+		}
+		break
 	}
-	fmt.Println("\n¿Qué día naciste?")
-	_, err = fmt.Scanln(&diaUser)
-	if err != nil {
-		fmt.Println("Error al leer el día:", err)
-		return
+
+	for {
+		fmt.Println("\n¿Qué día naciste?")
+		_, err = fmt.Scanln(&diaUser)
+		if err != nil {
+			fmt.Println("Error al leer el día:", err)
+			continue
+		}
+		break
 	}
-	fmt.Println("\n¿De qué mes? (número del mes)")
-	_, err = fmt.Scanln(&mesUser)
-	if err != nil {
-		fmt.Println("Error al leer el mes:", err)
-		return
+
+	for {
+		fmt.Println("\n¿De qué mes? (número del mes)")
+		_, err = fmt.Scanln(&mesUser)
+		if err != nil {
+			fmt.Println("Error al leer el mes:", err)
+			continue
+		}
+		break
 	}
 
 	if diaUser == dia && mesUser == mes {
